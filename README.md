@@ -19,8 +19,8 @@ npm install sails -g
 
 1. Frontend landing page: <code>/frontend/src/app/index.html</code>
 2. Backend URL: <code>io.sails.url</code> (customize in <code>frontend/config/config.json</code>)
-3. Copy + Modify <code>/backend/config/local_example.js</code> to <code>/backend/config/local_example.js</code>
-4. Dependencies: <code>npm install</npm> (runs npm/bower install from frontend and backend folders)
+3. Copy <code>/backend/config/local_example.js</code> to <code>/backend/config/local_example.js</code> and customize
+4. Install Dependencies: <code>npm install</npm> (runs <code>npm/bower install</code> from frontend and backend folders)
 
 ## Running
 You have to start both <code>backend</code> and <code>frontend</code> servers to run this project. These can
@@ -55,7 +55,7 @@ gulp production
 * Json Web Tokens, http://angular-tips.com/blog/2014/05/json-web-tokens-examples/
 
 ## Author
-Dean Sofer - ProLoser
+[Dean Sofer](https://github.com/ProLoser)  
 Tarmo Leppänen
 
 ## License
