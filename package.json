@@ -1,0 +1,33 @@
+{
+    "name": "angular-sailsjs-boilerplate",
+    "version": "1.0.0",
+    "description": "Example boilerplate application for AngularJS + Sails.js with separated back- and frontend.",
+    "keywords": [
+        "sails.js",
+        "backend",
+        "REST",
+        "API",
+        "JWT",
+        "JSON Web Token",
+        "Passport.js",
+        "frontend",
+        "angular",
+        "SPA"
+    ],
+    "main": "",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "install": "cd backend && npm install && cd ../frontend && npm install",
+        "test": "cd backend && mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ProLoser/angular-sailsjs-boilerplate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ProLoser/angular-sailsjs-boilerplate/issues"
+    },
+    "author": "Dean Sofer",
+    "license": "MIT"
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="frontend">
+    <head>
+        <meta charset="utf-8"/>
+        <title>AngularJS SailsJS Boilerplate</title>
+
+        <!-- inject:vendor:css -->
+        <!-- endinject -->
+
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
+    <body>
+
+        <ui-view></ui-view>
+
+        <script>
+            // Stupid hack for sails.io
+            (function onLoad() {
+                var io;
+
+                Object.defineProperty(window, 'io', {
+                    get: function get() {
+                        return io;
+                    },
+                    set: function set(value) {
+                        var sails;
+
+                        io = value;
+
+                        Object.defineProperty(io, 'sails', {
+                            get: function get() {
+                                return sails;
+                            },
+                            set: function set(value) {
+                                sails = value;
+
+                                sails.url = '@@backendUrl';
+                            }
+                        });
+                    }
+                });
+            })();
+        </script>
+
+        <!-- inject:vendor:js -->
+        <!-- endinject -->
+
+        <!-- inject:js -->
+        <!-- endinject -->
+    </body>
+</html>
