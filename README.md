@@ -1,73 +1,28 @@
-# Boilerplate for AngularJS + Sails.js [![Build Status](https://travis-ci.org/tarlepp/angular-sailsjs-boilerplate.png?branch=master)](https://travis-ci.org/tarlepp/angular-sailsjs-boilerplate)
+# Boilerplate for AngularJS + Sails.js
+
 ### Why?
 Modern web applications has separated front- and backend sides to use. This boilerplate present one way to make
 <em>your</em> application which have fully separated back- and frontend sides.
 
 ### Main goals of this boilerplate
-* Separate back- and frontend development
-* Light frontend application
+* Separate back and front development apps
 * Authenticate with backend (possible multiple ways: local, github, twitter, etc.)
-* Power of AngularJS + WebSockets
-* Simple examples how to use these
+* WebSockets
+* Minimal - I hate bloated boilerplates
 
-### Directory structure
-```
-backend/    = Sails.js server, just API nothing else
-frontend/   = Slush-angular, just frontend side
-```
+## Setup
 
-#### Backend
-For backend side this boilerplate uses Sails.js (imho awesome). See more info at https://github.com/balderdashy/sails
-I have just done some small tweaks to generic workflow of sails nothing else.
-
-#### Frontend
-Boilerplate uses slush-angular for frontend (AngularJS using Google Angular App Structure Recommendations).
-See more info at https://github.com/slushjs/slush-angular This library is awesome to distribute frontend.
-
-### Used libraries, guides, etc.
-* Sails.js, http://sailsjs.org/
-* slush-angular, https://github.com/slushjs/slush-angular
-* AngularJS, https://angularjs.org/
-* Bootstrap, http://getbootstrap.com/
-* Techniques for authentication in AngularJS applications, https://medium.com/opinionated-angularjs/7bbf0346acec
-* Json Web Tokens, http://angular-tips.com/blog/2014/05/json-web-tokens-examples/
-
-### Installation
-First of all you have to install <code>npm</code> to your box. Also you need <code>node.js</code> installed to your box.
-And when you have installed those you have to run following commands. Those will install the main packages that you
-need to run this application.
 <pre>
 npm install bower -g
-npm install slush -g
 npm install sails -g
 </pre>
 
-After you have fetched codes of this project to your computer, please follow instructions below.
+1. Frontend landing page: <code>/frontend/src/app/index.html</code>
+2. Backend URL: <code>io.sails.url</code> (customize in <code>frontend/config/config.json</code>)
+3. Copy + Modify <code>/backend/config/local_example.js</code> to <code>/backend/config/local_example.js</code>
+4. Dependencies: <code>npm install</npm> (runs npm/bower install from frontend and backend folders)
 
-#### Setup
-Change your <code>/frontend/src/app/index.html</code> file, locate <code>io.sails.url</code> and but your backend
-URL address there. Also you have add your own <code>local.js</code> to your backend side. There is an example file
-for that <code>/backend/config/local_example.js</code>, just copy that file to <code>/backend/config/local.js</code>
-file and make necessary changes and you're ready to go.
-
-#### Backend
-<pre>
-cd backend
-npm install
-</pre>
-
-#### Frontend
-<pre>
-cd frontend
-npm install
-bower install
-</pre>
-
-##### Notes
-If you're changing your backend API url to another than <code>http://localhost:1337</code> you need to make 
-<code>frontend/config/config.json</code> with proper content on it. Use that example file as start.
-
-### Running of this project
+## Running
 You have to start both <code>backend</code> and <code>frontend</code> servers to run this project. These can
 be started
 
@@ -78,26 +33,29 @@ sails lift
 </pre>
 
 #### Frontend
-As in development
+**In Development:**
 <pre>
 cd frontend
 gulp serve
 </pre>
 
-As in production
+**In Production:**
 <pre>
 cd frontend
 gulp dist
 gulp production
 </pre>
 
-## Demo
-This might be up and running... or not.
-http://wunder.sytes.net:3000/
 
-## Who is using this?
+## Resources
+
+* Sails.js, http://sailsjs.org/
+* AngularJS, https://angularjs.org/
+* AngularUI Router https://angular-ui.github.io/ui-router
+* Json Web Tokens, http://angular-tips.com/blog/2014/05/json-web-tokens-examples/
 
 ## Author
+Dean Sofer - ProLoser
 Tarmo Leppänen
 
 ## License
