@@ -7,10 +7,11 @@
  *
  * This service provides following methods:
  *
- *  Auth.authorize(access)
  *  Auth.isAuthenticated()
  *  Auth.login(credentials)
  *  Auth.logout()
+ *  Auth.register(credentials)
+ *  Auth.getUser()
  *
  * You can use this service fairly easy on your controllers and views if you like to. It's
  * recommend that you use this service with 'CurrentUser' service in your controllers and
@@ -41,24 +42,8 @@
  * @todo    Revoke method?
  * @todo    Text localizations?
  */
-angular.module('frontend.auth').factory('Auth', function( $http, $state, $localStorage, AccessLevels, BackendConfig, MessageService ) {
+angular.module('frontend.auth').factory('Auth', function( $http, $state, $localStorage, BackendConfig ) {
     return {
-        /**
-         * Method to authorize current user with given access level in application.
-         *
-         * @param   {Number}    accessLevel Access level to check
-         *
-         * @returns {Boolean}
-         */
-        'authorize': function authorize(accessLevel) {
-            if (accessLevel === AccessLevels.user) {
-                return this.isAuthenticated();
-            } else if (accessLevel === AccessLevels.admin) {
-                return this.isAuthenticated() && Boolean($localStorage.authToken.user.admin);
-            } else {
-                return accessLevel === AccessLevels.anon;
-            }
-        },
 
         /**
          * Method to check if current user is authenticated or not. This will just
@@ -84,7 +69,6 @@ angular.module('frontend.auth').factory('Auth', function( $http, $state, $localS
             return $http
                 .post(BackendConfig.url + '/login', credentials, {withCredentials: true})
                 .then(function(response) {
-                    MessageService.success('You have been logged in.');
 
                     $localStorage.authToken = response.data;
                 });
@@ -99,8 +83,6 @@ angular.module('frontend.auth').factory('Auth', function( $http, $state, $localS
         'logout': function logout() {
             delete $localStorage.authToken;
 
-            MessageService.success('You have been logged out.');
-
             $state.go('login');
         },
 
@@ -108,7 +90,6 @@ angular.module('frontend.auth').factory('Auth', function( $http, $state, $localS
             return $http
                 .post(BackendConfig.url + '/register', credentials, {withCredentials: true})
                 .then(function(response) {
-                    MessageService.success('You have been registered.');
 
                     $localStorage.authToken = response.data;
                 });
